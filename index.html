@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aman Upadhyay - Portfolio</title>
-    <link href="style.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y0E5LSM2N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y0E5LSM2N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2Y0E5LSM2N');
+    </script>
+    <style>
+        .animate-fade-in { animation: fadeIn 1s ease forwards; }
+        .animate-slide-up { animation: slideUp 1s ease forwards; }
+        .animate-fade-in-up { animation: fadeInUp 1s ease 0.3s both; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-  gtag('config', 'G-2Y0E5LSM2N');
-</script>
+        .slideshow-background {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .slideshow-background .slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+        }
+        .slideshow-background .slide.active {
+            opacity: 0.15;
+        }
+    </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800">
     <header class="sticky top-0 z-50 bg-black/20 backdrop-blur-sm border-b border-white/10">
@@ -36,28 +57,38 @@
                 </div>
 
                 <!-- Mobile menu button -->
-                <button class="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-300">
+                <button id="menuBtn" class="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="#home" class="text-white hover:text-purple-400 transition-colors duration-300 py-1">Home</a>
+                    <a href="#experience" class="text-white hover:text-purple-400 transition-colors duration-300 py-1">Experience</a>
+                    <a href="#skills" class="text-white hover:text-purple-400 transition-colors duration-300 py-1">Skills</a>
+                    <a href="#projects" class="text-white hover:text-purple-400 transition-colors duration-300 py-1">Projects</a>
+                    <a href="#contact" class="text-white hover:text-purple-400 transition-colors duration-300 py-1">Contact</a>
+                </div>
+            </div>
         </nav>
     </header>
-    
+
     <main class="text-white">
         <!-- Hero Section -->
         <section id="home" class="min-h-[90vh] flex items-center justify-center relative overflow-hidden">
-            <!-- In your hero section, replace the current background div with this -->
-<class class="slideshow-background">
-    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80')"></div>
-    
-</class>
+            <!-- FIX: <class> tag -> <div> tag -->
+            <div class="slideshow-background">
+                <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80')"></div>
+            </div>
+
             <div class="container mx-auto px-4 py-20 text-center relative z-10">
                 <div class="mb-8 relative inline-block">
                     <div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-purple-500/30 p-1 bg-gradient-to-br from-purple-500/20 to-pink-500/20 animate-fade-in">
-                        <img src="aman.jpeg"
-                            alt="Profile" class="w-full h-full object-cover rounded-full">
+                        <img src="aman.jpeg" alt="Profile" class="w-full h-full object-cover rounded-full">
                     </div>
                 </div>
                 <h1 class="text-6xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 animate-fade-in">
@@ -107,70 +138,63 @@
         </section>
 
         <!-- Skills Section -->
-<section id="skills" class="py-20">
-    <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
-            Skills & Technologies
-        </h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="bg-white/5 p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group">
-                <svg class="w-12 h-12 mx-auto mb-4 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <p class="text-lg text-white">JavaScript</p>
+        <section id="skills" class="py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+                    Skills & Technologies
+                </h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white/5 p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <p class="text-lg text-white">JavaScript</p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        <p class="text-lg text-white">React.js</p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                        </svg>
+                        <p class="text-lg text-white">Node.js</p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                        </svg>
+                        <p class="text-lg text-white">MongoDB</p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        </svg>
+                        <p class="text-lg text-white">HTML/CSS</p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <p class="text-lg text-white">Express.js</p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+                        </svg>
+                        <p class="text-lg text-white">Git</p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        </svg>
+                        <p class="text-lg text-white">RESTful APIs</p>
+                    </div>
+                </div>
             </div>
-
-            <div class="bg-white/5 p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group">
-                <svg class="w-12 h-12 mx-auto mb-4 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
-                <p class="text-lg text-white">React.js</p>
-            </div>
-
-            <div class="bg-white/5 p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group">
-                <svg class="w-12 h-12 mx-auto mb-4 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-                </svg>
-                <p class="text-lg text-white">Node.js</p>
-            </div>
-
-            <div class="bg-white/5 p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group">
-                <svg class="w-12 h-12 mx-auto mb-4 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-                </svg>
-                <p class="text-lg text-white">MongoDB</p>
-            </div>
-
-            <div class="bg-white/5 p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group">
-                <svg class="w-12 h-12 mx-auto mb-4 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                </svg>
-                <p class="text-lg text-white">HTML/CSS</p>
-            </div>
-
-            <div class="bg-white/5 p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group">
-                <svg class="w-12 h-12 mx-auto mb-4 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <p class="text-lg text-white">Express.js</p>
-            </div>
-
-            <div class="bg-white/5 p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group">
-                <svg class="w-12 h-12 mx-auto mb-4 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-                </svg>
-                <p class="text-lg text-white">Git</p>
-            </div>
-
-            <div class="bg-white/5 p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group">
-                <svg class="w-12 h-12 mx-auto mb-4 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                </svg>
-                <p class="text-lg text-white">RESTful APIs</p>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
         <!-- Projects Section -->
         <section id="projects" class="py-20 bg-black/20">
@@ -188,8 +212,7 @@
                         <h3 class="text-2xl font-semibold mb-4">Job Listing Portal</h3>
                         <p class="text-slate-300 mb-4">
                             A full-stack MERN application connecting job seekers with employers.
-                            Features include user authentication, role-based dashboards, and
-                            detailed job listings.
+                            Features include user authentication, role-based dashboards, and detailed job listings.
                         </p>
                         <div class="flex gap-2">
                             <span class="px-3 py-1 bg-purple-500/20 rounded-full text-sm">MERN Stack</span>
@@ -239,7 +262,28 @@
     </main>
 
     <footer class="bg-black/40 text-center py-6 text-slate-400">
-        <p>© 2024 Aman Upadhyay. All rights reserved.</p>
+        <!-- FIX: Dynamic year -->
+        <p>© <span id="year"></span> Aman Upadhyay. All rights reserved.</p>
     </footer>
+
+    <script>
+        // FIX: Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // FIX: Dynamic copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
